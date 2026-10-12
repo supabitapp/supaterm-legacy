@@ -33,7 +33,8 @@ jobs:
           fetch-depth: 0
       - if: github.event_name == 'pull_request'
         run: python3 -m unittest discover -s .github/scripts -p '*_test.py'
-      - id: changes
+      - name: Detect affected projects
+        id: changes
         shell: bash
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
