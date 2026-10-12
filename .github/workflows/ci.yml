@@ -172,11 +172,10 @@ jobs:
           E2E_XCTESTRUN_PATH="$RUNNER_TEMP/e2e-artifact/Products/supatermE2E.xctestrun"
           E2E_RESULT_BUNDLE_PATH="$RUNNER_TEMP/supatermE2E.xcresult"
           XCODEBUILD_FLAGS="
+          -parallel-testing-enabled NO
           -skip-testing:supatermE2E/AgentNarrowTabE2ETests
           -skip-testing:supatermE2E/CodexE2ETests
-          -skip-testing:supatermE2E/CodexZmxE2ETests
           -skip-testing:supatermE2E/ClaudeE2ETests
-          -skip-testing:supatermE2E/ClaudeZmxE2ETests
           -skip-testing:supatermE2E/PiE2ETests
           -skip-testing:supatermE2E/PiZmxE2ETests"
         env:
@@ -217,9 +216,7 @@ jobs:
           -parallel-testing-enabled NO
           -only-testing:supatermE2E/AgentNarrowTabE2ETests
           -only-testing:supatermE2E/CodexE2ETests
-          -only-testing:supatermE2E/CodexZmxE2ETests
           -only-testing:supatermE2E/ClaudeE2ETests
-          -only-testing:supatermE2E/ClaudeZmxE2ETests
           -only-testing:supatermE2E/PiE2ETests
           -only-testing:supatermE2E/PiZmxE2ETests"
         env:
