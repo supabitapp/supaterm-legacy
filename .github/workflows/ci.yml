@@ -78,7 +78,7 @@ jobs:
         with:
           cache-native-builds: false
           github-token: ${{ github.token }}
-      - run: make ios-build
+      - run: make ios-build IOS_DESTINATION="generic/platform=iOS Simulator"
         env:
           TUIST_TOKEN: ${{ secrets.TUIST_TOKEN }}
 
