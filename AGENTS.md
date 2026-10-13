@@ -11,6 +11,7 @@
 ## Documentation
 
 - `./docs/development.md` - general development doc
+- `./docs/ci-pipeline.md` - CI measurements, layout, and remaining levers
 - `./docs/theming.md` - how Supaterm default chrome styling works
 - `./docs/coding-agents-integration.md` - how coding agents integration features work
 - `./docs/how-socket-works.md` - how the `sp` CLI and the macOS app talk through socket IPC
@@ -19,6 +20,13 @@
 - Keep `integrations/supaterm` in sync when CLI behavior or coding-agent integrations change; we maintain the user-facing `supaterm` skill there
 - Read `apps/supaterm.com/AGENTS.md` before working in the marketing website
 - Read `apps/docs.supaterm.com/AGENTS.md` before working in the documentation website and run its commands through the root `make docs-*` targets
+- Use the technical-writing skill for repository documentation.
+
+## CI
+
+- New E2E suites run in `mac-test-e2e` by default. Keep its exclusions complementary to `mac-test-agent-e2e` inclusions so every suite runs once.
+- Build E2E products once and keep `-parallel-testing-enabled NO` in both consumers; UI tests retain their separate Tuist build and 16 shards.
+- Account for 67-101 seconds of consumer overhead before adding runners. Use logged suite durations and `docs/ci-pipeline.md` to rebalance existing jobs first.
 
 ## Terminology
 
